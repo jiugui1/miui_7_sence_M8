@@ -1,0 +1,19 @@
+*** BackupManagerService$PerformFullRestoreTask.smali	2016-01-12 21:05:58.136756451 +0800
+--- BackupManagerService$PerformFullRestoreTask.smali	2016-01-12 21:04:57.647549210 +0800
+***************
+*** 1484,1490 ****
+      move-result v7
+  
+      .local v7, "didRead":I
+!     if-ltz v7, :cond_0
+  
+      move-object/from16 v0, p0
+  
+--- 1484,1490 ----
+      move-result v7
+  
+      .local v7, "didRead":I
+!     if-ltz v7, :cond_2
+  
+      move-object/from16 v0, p0
+  

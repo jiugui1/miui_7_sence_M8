@@ -1,0 +1,5 @@
+﻿Project: M8_TL_K444_SENSE60_MR
+SKU: HTCCN CMCC ROM
+ROM Build ID: 876539
+Build ID: 876540; SKU: HTCCN CMCC ROM default; CID: default; MNS: default
+Datetime: 2014/10/22 16:27:09

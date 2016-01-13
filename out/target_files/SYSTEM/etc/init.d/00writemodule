@@ -1,0 +1,6 @@
+#!/system/bin/sh
+#Install system write module by Flar2
+#
+insmod /system/lib/modules/wp_mod.ko
+mount -o remount,rw /system
+echo $(date) "system write enabled"

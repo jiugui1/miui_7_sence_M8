@@ -1,0 +1,21 @@
+*** ./smali/android/net/CaptivePortalTracker.smali	2016-01-12 21:05:48.244549727 +0800
+--- /home/ghoul/micode/sence/temp/new_smali/framework.jar.out/./smali/android/net/CaptivePortalTracker.smali	2016-01-12 21:04:48.495379354 +0800
+***************
+*** 730,735 ****
+--- 730,745 ----
+  
+      iput-object v1, p0, Landroid/net/CaptivePortalTracker;->mUrl:Ljava/lang/String;
+  
++     iget-object v1, p0, Landroid/net/CaptivePortalTracker;->mContext:Landroid/content/Context;
++ 
++     iget-object v2, p0, Landroid/net/CaptivePortalTracker;->mUrl:Ljava/lang/String;
++ 
++     invoke-static {v1, v2}, Landroid/net/CaptivePortalTrackerInjector;->getCaptivePortalServer(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
++ 
++     move-result-object v1
++ 
++     iput-object v1, p0, Landroid/net/CaptivePortalTracker;->mUrl:Ljava/lang/String;
++ 
+      new-instance v1, Ljava/lang/StringBuilder;
+  
+      invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

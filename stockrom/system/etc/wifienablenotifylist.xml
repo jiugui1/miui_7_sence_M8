@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Wi-Fi Enabled Notification List For CMCC -->
+<WifiEnabledNotificationList>
+	<WhiteList>
+        <Package>com.android.settings</Package>
+        <Package>com.android.systemui</Package>
+        <Package>com.htc.android.ssdtest</Package>
+        <Package>com.htc.htcwifiwidget</Package>
+        <Package>com.htc.htcsettingwidgets</Package>
+        <Package>com.htc.rosiewidgets.powerstrip</Package>
+        <Package>com.android.settings.widget.SettingsAppWidgetProvider</Package>
+        <Package>com.htc.android.htcsetupwizard</Package>
+        <Package>com.htc.AndroidTestII</Package>
+        <Package>com.htc.android.estress</Package>
+        <Package>com.android.cts.stub</Package>
+        <Package>com.android.cts.net</Package>
+        <Package>com.android.cts.permission</Package>
+        <Package>com.htc.wifidisplay</Package>
+        <Package>com.android.CSDFunctionR</Package>
+        <Package>com.htc.CSDFunctionR</Package>
+	</WhiteList>
+</WifiEnabledNotificationList>
+

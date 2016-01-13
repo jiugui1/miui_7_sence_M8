@@ -1,0 +1,5 @@
+ro.ril.roaming_lte.plmn=302220
+ro.cdma.data_retry_config=max_retries=infinite,0,0,60000,120000,480000,900000
+ro.gsm.data_retry_config=max_retries=infinite,0,0,60000,120000,480000,900000
+ro.gsm.2nd_data_retry_config=max_retries=infinite,0,0,60000,120000,480000,900000
+ro.ril.def.agps.mode=6

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<WldConfig>
+
+    <tab name="Setting">
+        <!-- 
+          * The WLD will launch repeatly by this period value.
+          * The unit of time is millisecond. (ms)
+        -->
+        <item name="DetectPeriod" value="3600000" />
+        <!-- 
+          * In order to get CPU usage of the specific wakelock, 
+          * The WLD will sleep and wait until time's up.
+          * The unit of time is millisecond. (ms)
+        -->
+        <item name="SleepTime" value="300000" />
+    </tab>
+
+    <tab name="Criteria">
+        <!--
+          * The wakelock would be a candidate of abnormal wakelock
+          * if it is held for more than this time.
+          * The unit of time is millisecond. (ms)
+        -->
+        <item name="HeldTime" value="3600000" />
+        <!--
+          * The wakelock would be a candidate of abnormal wakelock
+          * if its CPU usage is smaller than this percentage.
+          * The unit of value is percentage. (%)
+        -->
+        <item name="CpuUsage" value="1" />
+        <!--
+          * The wakelock would be a candidate of abnormal wakelock
+          * if its throughput is smaller than this value.
+          * The unit of value is bytes per second. (bytes/s)
+        -->
+        <item name="Throughput" value="20480" />
+    </tab>
+
+    <tab name="IgnoreList">
+        <!--
+          * All abnormal wakelocks would be released if white list 
+          * is disable. The abnormal wakelock in white list would be
+          * released if white list is enable.
+        -->
+        <items name="WhiteList" enable="true">
+            <item name="audio.core.uap.WakeLockUtil" />
+        </items>
+
+        <!--
+          * The abnormal wakelock would be skipped if black list is
+          * enable and it is in.
+        -->
+        <items name="BlackList" enable="true">
+            <!-- Example
+            <item name="wakelock_name" /> 
+            -->
+        </items>
+    </tab>
+
+</WldConfig>

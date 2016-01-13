@@ -1,0 +1,103 @@
+.class public Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
+.super Lcom/android/internal/os/BatteryStatsImpl$Counter;
+.source "BatteryStatsImpl.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/internal/os/BatteryStatsImpl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "SamplingCounter"
+.end annotation
+
+
+# direct methods
+.method constructor <init>(Ljava/util/ArrayList;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 687
+    .local p1, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    invoke-direct {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Counter;-><init>(Ljava/util/ArrayList;)V
+
+    .line 688
+    return-void
+.end method
+
+.method constructor <init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
+    .locals 0
+    .param p2, "in"    # Landroid/os/Parcel;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;",
+            ">;",
+            "Landroid/os/Parcel;",
+            ")V"
+        }
+    .end annotation
+
+    .prologue
+    .line 683
+    .local p1, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    invoke-direct {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Counter;-><init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
+
+    .line 684
+    return-void
+.end method
+
+
+# virtual methods
+.method public add(Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;)V
+    .locals 0
+    .param p1, "sc"    # Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
+
+    .prologue
+    .line 696
+    invoke-super {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Counter;->add(Lcom/android/internal/os/BatteryStatsImpl$Counter;)V
+
+    .line 697
+    return-void
+.end method
+
+.method public addCountAtomic(J)V
+    .locals 2
+    .param p1, "count"    # J
+
+    .prologue
+    .line 691
+    iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    long-to-int v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
+
+    .line 692
+    return-void
+.end method
+
+.method public minus(Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;)V
+    .locals 0
+    .param p1, "sc"    # Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
+
+    .prologue
+    .line 700
+    invoke-super {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Counter;->minus(Lcom/android/internal/os/BatteryStatsImpl$Counter;)V
+
+    .line 701
+    return-void
+.end method

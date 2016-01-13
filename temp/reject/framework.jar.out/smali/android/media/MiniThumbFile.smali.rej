@@ -1,0 +1,27 @@
+*** MiniThumbFile.smali	2016-01-12 21:05:49.588577617 +0800
+--- MiniThumbFile.smali	2016-01-12 21:04:49.723401932 +0800
+***************
+*** 583,593 ****
+  
+      iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+  
+!     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
+  
+      move-result v0
+  
+!     if-ne v0, v9, :cond_1
+  
+      iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+  
+--- 595,605 ----
+  
+      iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+  
+!     invoke-static {v0, p1, p2}, Landroid/media/MiniThumbFile$Injector;->isMatch(Ljava/nio/ByteBuffer;J)Z
+  
+      move-result v0
+  
+!     if-eqz v0, :cond_1
+  
+      iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+  

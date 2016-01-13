@@ -1,0 +1,20 @@
+*** LockSettingsService.smali	2016-01-12 21:05:57.492742893 +0800
+--- LockSettingsService.smali	2016-01-12 21:04:57.047537959 +0800
+***************
+*** 6,12 ****
+  # annotations
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+!         Lcom/android/server/LockSettingsService$DatabaseHelper;
+      }
+  .end annotation
+  
+--- 6,13 ----
+  # annotations
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+!         Lcom/android/server/LockSettingsService$DatabaseHelper;,
+!         Lcom/android/server/LockSettingsService$Injector;
+      }
+  .end annotation
+  

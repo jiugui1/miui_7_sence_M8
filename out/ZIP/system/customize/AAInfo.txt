@@ -1,0 +1,6 @@
+TaskID : 398606
+Project : M8_TL_K444_SENSE60_MR
+SKU : HTCCN CHS CMCC[1403]
+ROM Ver : 3.32.1403.7
+Customization Id : 876539
+RCMS Id : 31

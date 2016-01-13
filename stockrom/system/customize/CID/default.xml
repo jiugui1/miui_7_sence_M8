@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<customization_form>
+  <category name="system">
+    <module name="locale">
+      <function>
+        <set name="single">
+          <item name="total_list">en_US;zh_CN;zh_TW;</item>
+          <item type="boolean" name="en_US">yes</item>
+          <item type="boolean" name="zh_CN">yes</item>
+          <item type="boolean" name="zh_TW">yes</item>
+        </set>
+      </function>
+    </module>
+    <module name="Settings">
+      <function name="customized_value">
+        <set name="single">
+          <item name="single_usb_tethering">false</item>
+        </set>
+      </function>
+    </module>
+    <module name="defaultAutoTime">
+      <function>
+        <set name="single">
+          <item name="default">0</item>
+        </set>
+      </function>
+    </module>
+    <module name="defaultTime1224">
+      <function>
+        <set name="single">
+          <item name="default">24</item>
+        </set>
+      </function>
+    </module>
+    <module name="defaultTimeZone">
+      <function>
+        <set name="single">
+          <item name="default">Asia/Shanghai</item>
+        </set>
+      </function>
+    </module>
+    <module name="defaultAutoTimeZone">
+      <function>
+        <set name="single">
+          <item name="default">0</item>
+        </set>
+      </function>
+    </module>
+    <module name="InputMethod">
+      <function name="IME_language_set">
+        <set name="single">
+          <item type="boolean" name="English">yes</item>
+        </set>
+      </function>
+      <function name="IME_sip_set">
+        <set name="single">
+          <item name="total_list">Handwriting;ZuhYin;CangJie;PinYin;Stroke;VietVni;VietTel;Hindi;Tamil99;TamilAnjal;Marathi;Bangla;Telugu;Kannada;Punjabi;Malayalam;Gujarati;Oriya;</item>
+          <item type="boolean" name="Handwriting">yes</item>
+          <item type="boolean" name="ZuhYin">no</item>
+          <item type="boolean" name="CangJie">no</item>
+          <item type="boolean" name="PinYin">yes</item>
+          <item type="boolean" name="Stroke">yes</item>
+        </set>
+      </function>
+    </module>
+    <module name="deviceData">
+      <function>
+        <set name="single">
+          <item name="device_name">HTC One_M8</item>
+        </set>
+      </function>
+    </module>
+    <module name="deviceData1">
+      <function>
+        <set name="single">
+          <item name="sw_number">NA</item>
+        </set>
+      </function>
+    </module>
+    <module name="Settings">
+      <function name="customized_value">
+        <set name="single">
+          <item name="has_netsharing">true</item>
+          <item name="has_modemlink">false</item>
+          <item name="has_spcsc">false</item>
+          <item name="single_usb_tethering">false</item>
+        </set>
+      </function>
+    </module>
+    <module name="DataUsage">
+      <function name="settings">
+        <set name="single">
+          <item name="alertEnable">false</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <category name="application">
+    <module name="Crash_Report">
+      <function name="setting">
+        <set name="single">
+          <item name="turn_off_report" type="boolean">yes</item>
+          <item name="turn_off_tell_htc" type="boolean">yes</item>
+          <item name="turn_off_application_log" type="boolean">yes</item>
+          <item name="hide_usage_report" type="boolean">yes</item>
+          <item name="ui_mode">background</item>
+        </set>
+      </function>
+    </module>
+    <module name="FOTA">
+      <function name="settings">
+        <set name="single">
+          <item name="Enable_FOTA_UI" type="boolean">yes</item>
+          <item name="Enable_Manual_Check" type="boolean">no</item>
+        </set>
+      </function>
+    </module>
+    <module name="Wifihotspot">
+      <function name="usermanagement">
+        <set name="plenty" max="15">
+          <item name="connection_array">10</item>
+        </set>
+      </function>
+    </module>
+    <module name="Phone">
+      <function name="ip_dial">
+        <set name="single">
+          <item name="enabled">true</item>
+          <item name="operator">46000:46001:46002:46007</item>
+          <item name="number1">17951</item>
+          <item name="number2">12593</item>
+          <item name="number3">17911</item>
+          <item name="number4">10193</item>
+        </set>
+      </function>
+    </module>
+    <module name="HotspotName">
+      <function>
+        <set name="single">
+          <item name="device_name">HTC_M8</item>
+          <item name="additional_string">mac_address</item>
+          <item name="additional_count">2</item>
+        </set>
+      </function>
+    </module>
+    <module name="OOBE">
+      <function name="Wifi_Connectivity">
+        <set name="single">
+          <item name="Default" type="boolean">yes</item>
+        </set>
+      </function>
+      <!--%%File%%-->
+    </module>
+  </category>
+  <BootConfiguration>
+    <BootAnimation animation="/system/customize/resource/hTC_bootup_one.zip" />
+  </BootConfiguration>
+  <ShutdownConfiguration>
+    <ShutdownAnimation image_png="/system/customize/resource/hTC_downanimation.zip" image="" fps="10" />
+  </ShutdownConfiguration>
+  <category name="SettingsProvider">
+    <module name="res">
+      <function name="values">
+        <set name="single">
+          <item name="def_screen_off_timeout">-2</item>
+          <item name="def_install_non_market_apps">1</item>
+          <item name="def_location_gps_providers_allowed">true</item>
+          <item name="def_location_network_providers_allowed">true</item>
+          <item name="def_inactivity_time">900</item>
+          <item name="def_htc_mobile_network_on">true</item>
+          <item name="def_2g_on">0</item>
+          <item name="def_user_powersaver_enable">0</item>
+          <item name="def_powersaver_reduce_CPU">1</item>
+          <item name="def_powersaver_screen_brightness">1</item>
+          <item name="def_powersaver_haptic_feedback">0</item>
+          <item name="def_powersaver_connectivity">0</item>
+          <item name="def_hide_ui_user_powersaver">0</item>
+          <item name="def_hide_ui_powersaver_connectivity">0</item>
+          <item name="def_emergency_tone">0</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <category name="Settings">
+    <module name="properties">
+      <function>
+        <set name="single">
+          <item name="support_imsi">false</item>
+        </set>
+      </function>
+      <function>
+        <set name="single">
+          <item name="market_name">HTC One_M8</item>
+        </set>
+      </function>
+    </module>
+    <module name="list">
+      <function name="unsupport_disable_button_list">
+        <set name="single">
+          <item name="1">com.mocana.vpn.android</item>
+          <item name="2">com.mocana.vpn.android.gui</item>
+          <item name="3">com.motricity.verizon.ssodownloadable</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <category name="HTCCamera">
+    <module name="properties">
+      <function>
+        <set name="single">
+          <item name="mms_recording_limit">60</item>
+          <item name="mms_video_bitrate">128000</item>
+          <item name="mms_video_framerate">15</item>
+          <item name="mms_video_encoder">H264</item>
+          <item name="mms_preview_change_framerate">true</item>
+          <item name="mms_need_apply_amrnb">true</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <category name="AudioService">
+    <module name="res">
+      <function name="values">
+        <set name="single">
+          <item name="enable_listen_notify">true</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <category name="ACC">
+    <module name="Automotive_Home">
+      <function name="settings">
+        <set>
+          <item name="Hide_Car_AutoLaunch_Option" type="boolean">false</item>
+        </set>
+      </function>
+    </module>
+    <module name="Voice_Recorder">
+      <function name="settings">
+        <set>
+          <item name="Record_QCP_format" type="boolean">true</item>
+        </set>
+      </function>
+    </module>
+    <module name="Software_Update_FOTA">
+      <function name="settings">
+        <set>
+          <item name="support_htc_apps" type="boolean">false</item>
+        </set>
+      </function>
+    </module>
+    <module name="Android_TelephonyMessage">
+      <function name="settings">
+        <set type="string-array" name="telephony_sms_operator_define_sms_short_code">
+          <item>us:free=+87902</item>
+        </set>
+      </function>
+    </module>
+    <module name="Settings-Wireless_+_network-USB_tethering_">
+      <function name="settings">
+        <set>
+          <item name="Single_USB_tethering" type="boolean">false</item>
+        </set>
+      </function>
+    </module>
+    <module name="Android_Core_Framework">
+      <function name="settings">
+        <set>
+          <item name="nfc_default_on" type="integer">5</item>
+        </set>
+      </function>
+    </module>
+    <module name="Settings">
+      <function name="settings">
+        <set>
+          <item name="enable_E911_for_US_only" type="boolean">true</item>
+        </set>
+      </function>
+    </module>
+    <module name="Prism">
+      <function name="settings">
+        <set>
+          <item name="default_allapps_grid_size" type="integer">1</item>
+        </set>
+      </function>
+    </module>
+  </category>
+</customization_form>

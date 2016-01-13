@@ -1,0 +1,46 @@
+*** LocationManagerService.smali	2016-01-12 21:05:59.380782686 +0800
+--- LocationManagerService.smali	2016-01-12 21:04:58.727569493 +0800
+***************
+*** 336,341 ****
+  
+      iput-object v0, p0, Lcom/android/server/LocationManagerService;->mAppOps:Landroid/app/AppOpsManager;
+  
+      sget-boolean v0, Lcom/android/server/LocationManagerService;->D:Z
+  
+      if-eqz v0, :cond_0
+--- 338,355 ----
+  
+      iput-object v0, p0, Lcom/android/server/LocationManagerService;->mAppOps:Landroid/app/AppOpsManager;
+  
++     iget-object v0, p0, Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
++ 
++     iget-object v1, p0, Lcom/android/server/LocationManagerService;->mReceivers:Ljava/util/HashMap;
++ 
++     invoke-static {p0, v0, v1}, Lcom/android/server/LocationManagerServiceInjector;->init(Lcom/android/server/LocationManagerService;Ljava/lang/Object;Ljava/util/HashMap;)V
++ 
++     invoke-static {p1, p0}, Lcom/android/server/LocationPolicyManagerService;->newDefaultService(Landroid/content/Context;Landroid/location/ILocationManager;)Lcom/android/server/LocationPolicyManagerService;
++ 
++     move-result-object v0
++ 
++     iput-object v0, p0, Lcom/android/server/LocationManagerService;->mLocationPolicyService:Lcom/android/server/LocationPolicyManagerService;
++ 
+      sget-boolean v0, Lcom/android/server/LocationManagerService;->D:Z
+  
+      if-eqz v0, :cond_0
+***************
+*** 3874,3880 ****
+      return-void
+  .end method
+  
+! .method private removeUpdatesLocked(Lcom/android/server/LocationManagerService$Receiver;)V
+      .locals 9
+      .param p1, "receiver"    # Lcom/android/server/LocationManagerService$Receiver;
+  
+--- 3888,3894 ----
+      return-void
+  .end method
+  
+! .method removeUpdatesLocked(Lcom/android/server/LocationManagerService$Receiver;)V
+      .locals 9
+      .param p1, "receiver"    # Lcom/android/server/LocationManagerService$Receiver;
+  

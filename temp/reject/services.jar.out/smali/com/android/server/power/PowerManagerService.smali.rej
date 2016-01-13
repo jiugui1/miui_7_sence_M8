@@ -1,0 +1,231 @@
+*** PowerManagerService.smali	2016-01-12 21:06:00.952815909 +0800
+--- PowerManagerService.smali	2016-01-12 21:05:00.155596387 +0800
+***************
+*** 1242,1248 ****
+      monitor-enter v1
+  
+      :try_start_0
+!     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/power/PowerManagerService;->goToSleepNoUpdateLocked(JI)Z
+  
+      move-result v0
+  
+--- 1259,1265 ----
+      monitor-enter v1
+  
+      :try_start_0
+!     invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/power/PowerManagerService;->goToSleepNoUpdateLocked(JI)Z
+  
+      move-result v0
+  
+***************
+*** 1265,1271 ****
+      throw v0
+  .end method
+  
+! .method private goToSleepNoUpdateLocked(JI)Z
+      .locals 8
+      .param p1, "eventTime"    # J
+      .param p3, "reason"    # I
+--- 1282,1288 ----
+      throw v0
+  .end method
+  
+! .method goToSleepNoUpdateLocked(JI)Z
+      .locals 8
+      .param p1, "eventTime"    # J
+      .param p3, "reason"    # I
+***************
+*** 1275,1280 ****
+  
+      const/4 v5, 0x0
+  
+      iget-wide v6, p0, Lcom/android/server/power/PowerManagerService;->mLastWakeTime:J
+  
+      cmp-long v6, p1, v6
+--- 1292,1299 ----
+  
+      const/4 v5, 0x0
+  
++     invoke-direct {p0}, Lcom/android/server/power/PowerManagerService;->checkIfBootAnimationFinished()V
++ 
+      iget-wide v6, p0, Lcom/android/server/power/PowerManagerService;->mLastWakeTime:J
+  
+      cmp-long v6, p1, v6
+***************
+*** 1400,1405 ****
+  
+      .end local v3    # "wakeLock":Lcom/android/server/power/PowerManagerService$WakeLock;
+      :cond_2
+      const/16 v5, 0xaa4
+  
+      invoke-static {v5, v2}, Landroid/util/EventLog;->writeEvent(II)I
+--- 1419,1426 ----
+  
+      .end local v3    # "wakeLock":Lcom/android/server/power/PowerManagerService$WakeLock;
+      :cond_2
++     invoke-static {p3}, Lcom/android/server/power/PowerManagerServiceInjector;->checkWhenSleepRequestedLocked(I)V
++ 
+      const/16 v5, 0xaa4
+  
+      invoke-static {v5, v2}, Landroid/util/EventLog;->writeEvent(II)I
+***************
+*** 1496,1502 ****
+  
+      move-result-wide v0
+  
+!     invoke-direct {p0, v0, v1, v2}, Lcom/android/server/power/PowerManagerService;->goToSleepNoUpdateLocked(JI)Z
+  
+      invoke-direct {p0}, Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
+  
+--- 1517,1523 ----
+  
+      move-result-wide v0
+  
+!     invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/power/PowerManagerService;->goToSleepNoUpdateLocked(JI)Z
+  
+      invoke-direct {p0}, Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
+  
+***************
+*** 1781,1787 ****
+  .end method
+  
+  .method private handleUserActivityTimeout()V
+!     .locals 2
+  
+      .prologue
+      iget-object v1, p0, Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
+--- 1802,1808 ----
+  .end method
+  
+  .method private handleUserActivityTimeout()V
+!     .locals 6
+  
+      .prologue
+      iget-object v1, p0, Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
+***************
+*** 2517,2523 ****
+      return-void
+  .end method
+  
+! .method private releaseWakeLockInternal(Landroid/os/IBinder;I)V
+      .locals 5
+      .param p1, "lock"    # Landroid/os/IBinder;
+      .param p2, "flags"    # I
+--- 2561,2567 ----
+      return-void
+  .end method
+  
+! .method releaseWakeLockInternal(Landroid/os/IBinder;I)V
+      .locals 5
+      .param p1, "lock"    # Landroid/os/IBinder;
+      .param p2, "flags"    # I
+***************
+*** 4442,4447 ****
+  
+      const/4 v1, 0x0
+  
+      iget-wide v2, p0, Lcom/android/server/power/PowerManagerService;->mLastSleepTime:J
+  
+      cmp-long v2, p1, v2
+--- 4503,4510 ----
+  
+      const/4 v1, 0x0
+  
++     invoke-static {}, Lcom/android/server/power/ButtonLightController;->setButtonLightTimeout()V
++ 
+      iget-wide v2, p0, Lcom/android/server/power/PowerManagerService;->mLastSleepTime:J
+  
+      cmp-long v2, p1, v2
+***************
+*** 6386,6392 ****
+  .end method
+  
+  .method public init(Landroid/content/Context;Lcom/android/server/LightsService;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/BatteryService;Lcom/android/internal/app/IBatteryStats;Lcom/android/internal/app/IAppOpsService;Lcom/android/server/display/DisplayManagerService;)V
+!     .locals 3
+      .param p1, "context"    # Landroid/content/Context;
+      .param p2, "ls"    # Lcom/android/server/LightsService;
+      .param p3, "am"    # Lcom/android/server/am/ActivityManagerService;
+--- 6449,6455 ----
+  .end method
+  
+  .method public init(Landroid/content/Context;Lcom/android/server/LightsService;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/BatteryService;Lcom/android/internal/app/IBatteryStats;Lcom/android/internal/app/IAppOpsService;Lcom/android/server/display/DisplayManagerService;)V
+!     .locals 4
+      .param p1, "context"    # Landroid/content/Context;
+      .param p2, "ls"    # Lcom/android/server/LightsService;
+      .param p3, "am"    # Lcom/android/server/am/ActivityManagerService;
+***************
+*** 6671,6677 ****
+  
+      .local v0, "ident":J
+      :try_start_0
+!     invoke-direct {p0, p1, p2}, Lcom/android/server/power/PowerManagerService;->releaseWakeLockInternal(Landroid/os/IBinder;I)V
+      :try_end_0
+      .catchall {:try_start_0 .. :try_end_0} :catchall_0
+  
+--- 6744,6750 ----
+  
+      .local v0, "ident":J
+      :try_start_0
+!     invoke-virtual {p0, p1, p2}, Lcom/android/server/power/PowerManagerService;->releaseWakeLockInternal(Landroid/os/IBinder;I)V
+      :try_end_0
+      .catchall {:try_start_0 .. :try_end_0} :catchall_0
+  
+***************
+*** 7537,7542 ****
+      invoke-direct/range {p0 .. p0}, Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
+  
+      monitor-exit v18
+  
+      return-void
+  
+--- 7610,7637 ----
+      invoke-direct/range {p0 .. p0}, Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
+  
+      monitor-exit v18
++     :try_end_0
++     .catchall {:try_start_0 .. :try_end_0} :catchall_0
++ 
++     move-object/from16 v0, p0
++ 
++     iget-object v2, v0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
++ 
++     move-object/from16 v0, p0
++ 
++     iget-object v3, v0, Lcom/android/server/power/PowerManagerService;->mHandler:Lcom/android/server/power/PowerManagerService$PowerManagerHandler;
++ 
++     move-object/from16 v0, p0
++ 
++     iget-object v4, v0, Lcom/android/server/power/PowerManagerService;->mLightsService:Lcom/android/server/LightsService;
++ 
++     const/4 v5, 0x2
++ 
++     invoke-virtual {v4, v5}, Lcom/android/server/LightsService;->getLight(I)Lcom/android/server/LightsService$Light;
++ 
++     move-result-object v4
++ 
++     invoke-static {v2, v3, v4}, Lcom/android/server/power/ButtonLightController;->setButtonLight(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/LightsService$Light;)V
+  
+      return-void
+  
+***************
+*** 7547,7555 ****
+      :catchall_0
+      move-exception v2
+  
+      monitor-exit v18
+!     :try_end_0
+!     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+  
+      throw v2
+  .end method
+--- 7642,7651 ----
+      :catchall_0
+      move-exception v2
+  
++     :try_start_1
+      monitor-exit v18
+!     :try_end_1
+!     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+  
+      throw v2
+  .end method

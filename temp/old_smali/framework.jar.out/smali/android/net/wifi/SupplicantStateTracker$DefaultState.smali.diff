@@ -1,0 +1,15 @@
+*** ./smali/android/net/wifi/SupplicantStateTracker$DefaultState.smali	2016-01-12 21:05:47.712538706 +0800
+--- /home/ghoul/micode/sence/temp/new_smali/framework.jar.out/./smali/android/net/wifi/SupplicantStateTracker$DefaultState.smali	2016-01-12 21:04:48.027370762 +0800
+***************
+*** 151,156 ****
+--- 151,160 ----
+      # setter for: Landroid/net/wifi/SupplicantStateTracker;->mAssociationRejectCount:I
+      invoke-static {v2, v4}, Landroid/net/wifi/SupplicantStateTracker;->access$702(Landroid/net/wifi/SupplicantStateTracker;I)I
+  
++     iget v2, p1, Landroid/os/Message;->arg1:I
++ 
++     invoke-static {v2}, Landroid/net/wifi/SupplicantStateTrackerInjector;->handleConnectNetwork(I)V
++ 
+      goto :goto_0
+  
+      :sswitch_4

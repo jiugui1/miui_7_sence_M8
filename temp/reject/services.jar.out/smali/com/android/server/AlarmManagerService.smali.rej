@@ -1,0 +1,18 @@
+*** AlarmManagerService.smali	2016-01-12 21:06:00.532807027 +0800
+--- AlarmManagerService.smali	2016-01-12 21:04:59.771589147 +0800
+***************
+*** 7,12 ****
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+          Lcom/android/server/AlarmManagerService$ResultReceiver;,
+          Lcom/android/server/AlarmManagerService$UninstallReceiver;,
+          Lcom/android/server/AlarmManagerService$ClockReceiver;,
+          Lcom/android/server/AlarmManagerService$AlarmHandler;,
+--- 7,13 ----
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+          Lcom/android/server/AlarmManagerService$ResultReceiver;,
++         Lcom/android/server/AlarmManagerService$Injector;,
+          Lcom/android/server/AlarmManagerService$UninstallReceiver;,
+          Lcom/android/server/AlarmManagerService$ClockReceiver;,
+          Lcom/android/server/AlarmManagerService$AlarmHandler;,

@@ -1,0 +1,106 @@
+#!/system/bin/sh
+# SoulKernel
+
+    chmod 755 /sys/keyboard/vol_wakeup
+    echo 1 > /sys/keyboard/vol_wakeup
+    chmod 444 /sys/keyboard/vol_wakeup
+
+    echo "Mounting /system as RW";
+    mount -o remount,rw /system;
+	
+    chmod 644 /system/build.prop
+	
+	soul_button_light="true"
+    if [ "$soul_button_light" = "false" ]; then
+        echo 0 > /sys/class/leds/button-backlight/brightness
+        chmod 444 /sys/class/leds/button-backlight/brightness
+    fi
+	
+
+    soul_cpu_governor="ondemand"
+    if [ -e "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" ]; then
+        echo $soul_cpu_governor > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    fi
+	
+	soul_cpu_frep="false"
+	soul_cpu_min_frep="384000"
+	soul_cpu_max_frep="1728000"
+	if [ "$soul_cpu_frep" = "true" ]; then
+		chmod 666 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+		echo $soul_cpu_min_frep > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+		chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+		chmod 666 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+		echo $soul_cpu_max_frep > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+		chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+	fi
+
+	soul_sweep2wake="1"
+	if [ -e "/sys/android_touch/sweep2wake" ]; then
+		echo $soul_sweep2wake > /sys/android_touch/sweep2wake
+	fi
+
+	soul_thermal_settings="63,68,75,85"
+	if [ -e "/sys/module/msm_thermal/parameters/limit_temp_degC" ]; then
+		echo $soul_thermal_settings > /sys/module/msm_thermal/parameters/limit_temp_degC
+	fi
+
+	soul_fastcharge="0"
+	if [ -e "/sys/kernel/fast_charge/force_fast_charge" ]; then
+		echo $soul_fastcharge > /sys/kernel/fast_charge/force_fast_charge
+	fi
+
+	soul_logo2menu="1"
+	if [ -e "/sys/android_touch/logo2menu" ]; then
+		echo $soul_logo2menu > /sys/android_touch/logo2menu
+	fi
+
+	soul_logo2wake="1"
+	if [ -e "/sys/android_touch/logo2wake" ]; then
+		echo $soul_logo2wake > /sys/android_touch/logo2wake
+	fi
+
+	soul_doubletap2Wake="1"
+	if [ -e "/sys/android_touch/doubletap2wake" ]; then
+		echo $soul_doubletap2Wake > /sys/android_touch/doubletap2wake
+	fi
+
+	soul_blink_buttons="0"
+	if [ -e "/sys/class/leds/button-backlight/blink_buttons" ]; then
+		echo $soul_blink_buttons > /sys/class/leds/button-backlight/blink_buttons
+	fi
+
+	soul_Pocket_Protection="1"
+	if [ -e "/sys/android_touch/pocket_detect" ]; then
+		echo $soul_Pocket_Protection > /sys/android_touch/pocket_detect
+	fi
+
+	soul_mp_nw="0 2.0 3.1 4.5"
+	if [ -e "/sys/power/pnpmgr/hotplug/mp_nw" ]; then
+		echo $soul_mp_nw > /sys/power/pnpmgr/hotplug/mp_nw
+	fi
+
+	soul_mp_ns="0 1.1 2.1 3.5"
+	if [ -e "/sys/power/pnpmgr/hotplug/mp_ns" ]; then
+		echo $soul_mp_ns > /sys/power/pnpmgr/hotplug/mp_ns
+	fi
+
+	soul_mp_tw="0 140 140 140"
+	if [ -e "/sys/power/pnpmgr/hotplug/mp_tw" ]; then
+		echo $soul_mp_tw > /sys/power/pnpmgr/hotplug/mp_tw
+	fi
+
+	soul_io_sheduller="cfq"
+	if [ -e "/sys/block/mmcblk0/queue/scheduler" ]; then
+		echo $soul_io_sheduller > /sys/block/mmcblk0/queue/scheduler
+	fi
+
+	soul_sd_read_ahead="256"
+	if [ -e "/sys/block/mmcblk0/bdi/read_ahead_kb" ]; then
+		echo $soul_sd_read_ahead > /sys/block/mmcblk0/bdi/read_ahead_kb
+	fi
+	
+	soul_vibration="0"
+	if [ -e "/sys/android_touch/vib_strength" ]; then
+		echo $soul_vibration > /sys/android_touch/vib_strength
+	fi
+	
